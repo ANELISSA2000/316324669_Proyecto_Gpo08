@@ -98,7 +98,8 @@ int main()
     Shader shader("Shaders/modelLoading.vs", "Shaders/modelLoading.frag");
 
     // Load models
-    Model ALIEN((char*)"Models/Alien/alien.obj");//traer al pez
+    Model ALIEN((char*)"Models/Alien/alien.obj");
+    Model GODDARD((char*)"Models/Goddard/Goddard.obj");
    
     glm::mat4 projection = glm::perspective(camera.GetZoom(), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1f, 100.0f);
 
@@ -130,6 +131,12 @@ int main()
         glm::mat4 model(1);
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         ALIEN.Draw(shader);
+
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        GODDARD.Draw(shader);
+
         
 
 
