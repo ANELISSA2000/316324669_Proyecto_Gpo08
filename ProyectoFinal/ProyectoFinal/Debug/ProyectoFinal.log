@@ -1,1 +1,12 @@
-﻿  ProyectoFinal.vcxproj -> C:\Users\Admin\Documents\8 SEMESTRE\cg\REPOSITORIO\316324669_Proyecto_Gpo08\ProyectoFinal\Debug\ProyectoFinal.exe
+﻿  Proyecto_Final.cpp
+C:\Users\Admin\Documents\8 SEMESTRE\cg\REPOSITORIO\316324669_Proyecto_Gpo08\ProyectoFinal\ProyectoFinal\Proyecto_Final.cpp(118,30): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Admin\Documents\8 SEMESTRE\cg\REPOSITORIO\316324669_Proyecto_Gpo08\ProyectoFinal\ProyectoFinal\Proyecto_Final.cpp(270,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Admin\Documents\8 SEMESTRE\cg\REPOSITORIO\316324669_Proyecto_Gpo08\ProyectoFinal\ProyectoFinal\Proyecto_Final.cpp(271,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Admin\Documents\8 SEMESTRE\cg\REPOSITORIO\316324669_Proyecto_Gpo08\ProyectoFinal\ProyectoFinal\Proyecto_Final.cpp(275,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Admin\Documents\8 SEMESTRE\cg\REPOSITORIO\316324669_Proyecto_Gpo08\ProyectoFinal\ProyectoFinal\Proyecto_Final.cpp(276,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Admin\Documents\8 SEMESTRE\cg\REPOSITORIO\316324669_Proyecto_Gpo08\ProyectoFinal\ProyectoFinal\Proyecto_Final.cpp(278,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\Admin\Documents\8 SEMESTRE\cg\REPOSITORIO\316324669_Proyecto_Gpo08\ProyectoFinal\ProyectoFinal\Proyecto_Final.cpp(279,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+soil2-debug.lib(image_DXT.obj) : warning LNK4099: no se encontró PDB 'soil2-debug.pdb' con 'soil2-debug.lib(image_DXT.obj)' o en 'C:\Users\Admin\Documents\8 SEMESTRE\cg\REPOSITORIO\316324669_Proyecto_Gpo08\ProyectoFinal\Debug\soil2-debug.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil2-debug.lib(image_helper.obj) : warning LNK4099: no se encontró PDB 'soil2-debug.pdb' con 'soil2-debug.lib(image_helper.obj)' o en 'C:\Users\Admin\Documents\8 SEMESTRE\cg\REPOSITORIO\316324669_Proyecto_Gpo08\ProyectoFinal\Debug\soil2-debug.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+soil2-debug.lib(SOIL2.obj) : warning LNK4099: no se encontró PDB 'soil2-debug.pdb' con 'soil2-debug.lib(SOIL2.obj)' o en 'C:\Users\Admin\Documents\8 SEMESTRE\cg\REPOSITORIO\316324669_Proyecto_Gpo08\ProyectoFinal\Debug\soil2-debug.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
+  ProyectoFinal.vcxproj -> C:\Users\Admin\Documents\8 SEMESTRE\cg\REPOSITORIO\316324669_Proyecto_Gpo08\ProyectoFinal\Debug\ProyectoFinal.exe

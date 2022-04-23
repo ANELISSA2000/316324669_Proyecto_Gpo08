@@ -100,6 +100,12 @@ int main()
     // Load models
     Model ALIEN((char*)"Models/Alien/alien.obj");
     Model GODDARD((char*)"Models/Goddard/Goddard.obj");
+    Model FACHADA((char*)"Models/Casa/Fachada.obj");
+    Model CAMA((char*)"Models/Cama/Cama.obj");
+    Model ESCRITORIO((char*)"Models/Escritorio/escritorio.obj");
+    Model MOVIL((char*)"Models/Movil/Movil.obj");
+    Model BURO((char*)"Models/Buro/buro.obj");
+
    
     glm::mat4 projection = glm::perspective(camera.GetZoom(), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1f, 100.0f);
 
@@ -130,14 +136,47 @@ int main()
         // Draw the loaded model
         glm::mat4 model(1);
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        FACHADA.Draw(shader);
+
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(3.428f, 3.245f, -4.611f));
+        model = glm::scale(model, glm::vec3(0.284f, 0.284f, 0.284f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         ALIEN.Draw(shader);
 
         model = glm::mat4(1);
-        model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(0.251f, 3.28f, -3.11f));
+        model = glm::scale(model, glm::vec3(0.113f, 0.113f, 0.113f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         GODDARD.Draw(shader);
 
-        
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(4.723f, 3.252f, -3.031f));
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.692f, 0.692f, 0.692f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        CAMA.Draw(shader);
+
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(1.676f, 3.297f, 4.413f));
+        model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.192f, 0.192f, 0.192f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        ESCRITORIO.Draw(shader);
+
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(0.561f, 5.345f, -3.158f));
+        model = glm::scale(model, glm::vec3(0.138f, 0.138f, 0.138f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        MOVIL.Draw(shader);
+
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(3.451f, 3.361f, -1.405f));
+        model = glm::scale(model, glm::vec3(0.417f, 0.417f, 0.417f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        BURO.Draw(shader);
+
+        glBindVertexArray(0);
 
 
         // Swap the buffers
