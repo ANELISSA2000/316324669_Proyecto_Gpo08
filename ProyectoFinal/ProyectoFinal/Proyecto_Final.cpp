@@ -40,9 +40,14 @@ bool firstMouse = true;
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
 float rot = 0.0;
+float active_c = 0.0;
+float active_s = 0.0;
 bool anim = false;
-bool anim2 = false;
+bool silla = false;
+bool cajon = false;
 int x = 0;
+int y = 0;
+
 
 
 
@@ -102,9 +107,16 @@ int main()
     Model GODDARD((char*)"Models/Goddard/Goddard.obj");
     Model FACHADA((char*)"Models/Casa/Fachada.obj");
     Model CAMA((char*)"Models/Cama/Cama.obj");
-    Model ESCRITORIO((char*)"Models/Escritorio/escritorio.obj");
+    Model ESCRITORIO((char*)"Models/Escritorio_s/Escriotorio_s.obj");
+    Model CAJON((char*)"Models/Cajon/Cajon.obj");
+    Model SILLA((char*)"Models/Silla/Silla.obj");
     Model MOVIL((char*)"Models/Movil/Movil.obj");
     Model BURO((char*)"Models/Buro/buro.obj");
+    Model SILLON((char*)"Models/Sillon/Sillon.obj");
+    Model MESA((char*)"Models/Mesa/Mesa.obj");
+    Model CUCHARA((char*)"Models/Cuchara/Cuchara.obj");
+    Model PUERTA((char*)"Models/Puerta/Puerta.obj");
+
 
    
     glm::mat4 projection = glm::perspective(camera.GetZoom(), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1f, 100.0f);
@@ -165,6 +177,20 @@ int main()
         ESCRITORIO.Draw(shader);
 
         model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(1.444f, 3.735f, 4.215+active_c));
+        model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.192f, 0.192f, 0.192f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        CAJON.Draw(shader);
+
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(2.3+active_s, 3.789f, 3.285));
+        model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.192f, 0.192f, 0.192f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        SILLA.Draw(shader);
+
+        model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(0.561f, 5.345f, -3.158f));
         model = glm::scale(model, glm::vec3(0.138f, 0.138f, 0.138f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
@@ -175,6 +201,31 @@ int main()
         model = glm::scale(model, glm::vec3(0.417f, 0.417f, 0.417f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         BURO.Draw(shader);
+
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(0.749f, 0.0f, -5.328f));
+        model = glm::scale(model, glm::vec3(0.391f, 0.391f, 0.391f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        SILLON.Draw(shader);
+
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(1.772f, 0.141f, -3.933f));
+        model = glm::scale(model, glm::vec3(0.297f, 0.297f, 0.297f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        MESA.Draw(shader);
+
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(1.389f, 1.056f, -4.261f));
+        model = glm::rotate(model, glm::radians(-58.095f), glm::vec3(0.0f, 1.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.166f, 0.166f, 0.166f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        CUCHARA.Draw(shader);
+
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(-1.068f, 4.37f, 2.76f));
+        model = glm::rotate(model, glm::radians(rot), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        PUERTA.Draw(shader);
 
         glBindVertexArray(0);
 
@@ -211,27 +262,61 @@ void DoMovement()
     {
         camera.ProcessKeyboard(RIGHT, deltaTime);
     }
-    if (anim and x == 0)
+    
+    if (anim)////animación de la puerta
     {
-
-        if (rot > 45.0f) {
-            anim2 = true;
-            x = 1;
-        }
-        if (rot < 45.0f) {
-            rot += 0.1f;
-        }
-
-    }
-    if (anim2 == true and x == 1) {
-        if (rot < 46.0f) {
-            rot -= 0.1f;
-        }
-        if (rot < -45.0f) {
-            anim2 = false;
-            x = 0;
+      
+        if (rot > -46.0f and x == 0) {
+            rot -= 0.5f;
+           // printf("%f", rot);
+            if (rot < -45.0) {
+                x = 1;
+            }
         }
     }
+    if (anim == false) {
+        if (rot < 0.5) {
+            rot += 0.5f;
+            if (rot >= 0) {
+                x = 0;
+            }
+        }
+    }
+
+    if (cajon) {
+        if (y == 1) {
+            active_c += 0.01;
+            if (active_c > 0.0) {
+                cajon = false;
+                y = 0;
+            }
+        }
+        else {
+            active_c -= 0.01;
+            if (active_c <-0.5) {
+                cajon = false;
+                y = 1;
+            }
+        }
+    }
+
+    if (silla) {
+        if (y == 0) {
+            active_s += 0.01;
+            if (active_s > 0.0) {
+                silla = false;
+                y = 1;
+            }
+        }
+        else {
+            active_s -= 0.01;
+            if (active_s < -1.5) {
+                silla = false;
+                y = 0;
+            }
+        }
+    }
+    
 
 }
 
@@ -255,10 +340,28 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
         }
     }
 
-    if (keys[GLFW_KEY_O]) {
+    if (keys[GLFW_KEY_O] and x == 0)
+    {
         anim = true;
+
+    }
+    if (keys[GLFW_KEY_O] and x == 1)
+    {
+        anim = false;
+
     }
 
+    if (keys[GLFW_KEY_C])
+    {
+        cajon = !cajon;
+    }
+    if (keys[GLFW_KEY_Z])
+    {
+        silla = !silla;
+    }
+
+  
+    
 
 
 }
