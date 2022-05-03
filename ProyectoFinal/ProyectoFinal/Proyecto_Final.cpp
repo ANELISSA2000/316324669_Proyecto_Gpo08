@@ -40,6 +40,7 @@ bool firstMouse = true;
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
 float rot = 0.0;
+
 float active_c = 0.0;
 float active_s = 0.0;
 bool anim = false;
@@ -48,6 +49,32 @@ bool cajon = false;
 int x = 0;
 int y = 0;
 
+float rotMov = 0.0;
+float movMX = 0.0;
+float movMZ = 0.0;
+bool circuito = false;
+bool recorrido1 = true;
+bool recorrido2 = false;
+bool recorrido3 = false;
+bool recorrido4 = false;
+bool animmov = false;
+
+float rotMov2 = 0.0;
+float rotMov2_2 = 0.0;
+float rotMov2_3 = 0.0;
+float movMX2 = 0.0;
+float movMZ2 = 0.0;
+float movMY2 = 0.0;
+bool circuito2 = false;
+bool recorrido1_2 = true;
+bool recorrido2_2 = false;
+bool recorrido3_2 = false;
+bool recorrido4_2 = false;
+bool animmov2 = false;
+
+
+glm::vec3 PosIni(0.286f, 6.296f, -3.23f);
+glm::vec3 PosIni2(0.251f, 3.28f, -3.11f);
 
 
 
@@ -103,19 +130,19 @@ int main()
     Shader shader("Shaders/modelLoading.vs", "Shaders/modelLoading.frag");
 
     // Load models
-    Model ALIEN((char*)"Models/Alien/alien.obj");
+    //Model ALIEN((char*)"Models/Alien/alien.obj");
     Model GODDARD((char*)"Models/Goddard/Goddard.obj");
     Model FACHADA((char*)"Models/Casa/Fachada.obj");
     Model CAMA((char*)"Models/Cama/Cama.obj");
-    Model ESCRITORIO((char*)"Models/Escritorio_s/Escriotorio_s.obj");
-    Model CAJON((char*)"Models/Cajon/Cajon.obj");
-    Model SILLA((char*)"Models/Silla/Silla.obj");
-    Model MOVIL((char*)"Models/Movil/Movil.obj");
-    Model BURO((char*)"Models/Buro/buro.obj");
+    //Model ESCRITORIO((char*)"Models/Escritorio_s/Escriotorio_s.obj");
+    //Model CAJON((char*)"Models/Cajon/Cajon.obj");
+    //Model SILLA((char*)"Models/Silla/Silla.obj");
+    //Model MOVIL((char*)"Models/Movil/Movil_2.obj");
+   /* Model BURO((char*)"Models/Buro/buro.obj");
     Model SILLON((char*)"Models/Sillon/Sillon.obj");
     Model MESA((char*)"Models/Mesa/Mesa.obj");
     Model CUCHARA((char*)"Models/Cuchara/Cuchara.obj");
-    Model PUERTA((char*)"Models/Puerta/Puerta.obj");
+    Model PUERTA((char*)"Models/Puerta/Puerta.obj");*/
 
 
    
@@ -150,14 +177,17 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         FACHADA.Draw(shader);
 
-        model = glm::mat4(1);
+        /*model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(3.428f, 3.245f, -4.611f));
         model = glm::scale(model, glm::vec3(0.284f, 0.284f, 0.284f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        ALIEN.Draw(shader);
+        ALIEN.Draw(shader);*/
 
         model = glm::mat4(1);
-        model = glm::translate(model, glm::vec3(0.251f, 3.28f, -3.11f));
+        model = glm::translate(model, PosIni2 + glm::vec3(movMX2, movMY2, movMZ2));
+        model = glm::rotate(model, glm::radians(rotMov2), glm::vec3(0.0f, 1.0f, 0.0));
+        model = glm::rotate(model, glm::radians(rotMov2_2), glm::vec3(1.0f, 0.0f, 0.0));
+        model = glm::rotate(model, glm::radians(rotMov2_3), glm::vec3(0.0f, 0.0f, 1.0));
         model = glm::scale(model, glm::vec3(0.113f, 0.113f, 0.113f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         GODDARD.Draw(shader);
@@ -169,7 +199,7 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         CAMA.Draw(shader);
 
-        model = glm::mat4(1);
+        /*model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(1.676f, 3.297f, 4.413f));
         model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         model = glm::scale(model, glm::vec3(0.192f, 0.192f, 0.192f));
@@ -191,7 +221,8 @@ int main()
         SILLA.Draw(shader);
 
         model = glm::mat4(1);
-        model = glm::translate(model, glm::vec3(0.561f, 5.345f, -3.158f));
+        model = glm::translate(model, PosIni + glm::vec3(movMX, 0, movMZ));
+        model = glm::rotate(model, glm::radians(rotMov), glm::vec3(0.0f, 1.0f, 0.0));
         model = glm::scale(model, glm::vec3(0.138f, 0.138f, 0.138f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         MOVIL.Draw(shader);
@@ -225,7 +256,7 @@ int main()
         model = glm::translate(model, glm::vec3(-1.068f, 4.37f, 2.76f));
         model = glm::rotate(model, glm::radians(rot), glm::vec3(0.0f, 1.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        PUERTA.Draw(shader);
+        PUERTA.Draw(shader);*/
 
         glBindVertexArray(0);
 
@@ -316,8 +347,122 @@ void DoMovement()
             }
         }
     }
-    
 
+    if (circuito)
+    {
+        if (recorrido1)
+        {
+            movMX += 0.008f;
+            if (movMX > 1.5)
+            {
+                recorrido1 = false;
+                recorrido2 = true;
+            }
+        }
+        if (recorrido2)
+        {
+           // rotMov = 0.0;
+            movMZ += 0.008f;
+            if (movMZ > 1.0)
+            {
+                recorrido2 = false;
+                recorrido3 = true;
+
+            }
+        
+        }
+        if (recorrido3)
+        {
+            
+            movMX -= 0.008f;
+            if (movMX < 0)
+            {
+                recorrido3 = false;
+                recorrido4 = true;
+            }
+        }
+
+        if (recorrido4)
+        {
+            
+            movMZ -= 0.008f;
+            if (movMZ < 0)
+            {
+                recorrido4 = false;
+                animmov = true;
+                //recorrido5 = true;
+            }
+        }
+        
+        if (animmov) {
+            rotMov += 0.3;
+
+        }
+       
+
+    }
+
+    if (circuito2)
+    {
+        if (recorrido1_2)
+        {
+            movMY2 += 0.1f;
+            if (movMY2 > 1.5)
+            {
+                recorrido1_2 = false;
+                recorrido2_2 = true;
+            }
+        }
+
+        if (recorrido2_2)
+        {
+            movMZ2 += 0.1f;
+            if (movMZ2 > 4.0)
+            {
+                recorrido2_2 = false;
+                recorrido3_2 = true;
+
+            }
+
+        }
+        if (recorrido3_2)
+        {
+            rotMov2 = 90;
+            movMX2 += 0.1f;
+            if (movMX2 > 1.5)
+            {
+                recorrido3_2 = false;
+                recorrido4_2 = true;
+            }
+        }
+
+        if (recorrido4_2)
+        {
+            rotMov2 = 180;
+            rotMov2_2 = 15;
+            movMZ2 -= 0.008f;
+            movMY2 -= 0.008f;
+            if (movMY2 < 0.48)
+            {
+                rotMov2_2 = 0;
+                recorrido4_2 = false;
+                //recorrido5 = true;
+                animmov2 = true;
+            }
+        }
+
+        if (animmov2) {
+            rotMov2 += 0.3;
+            if (rotMov2 > 359) {
+                animmov2 = false;
+                circuito2 = false;
+            }
+        }
+    }
+
+
+    
+    
 }
 
 // Is called whenever a key is pressed/released via GLFW
@@ -359,7 +504,18 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
     {
         silla = !silla;
     }
-
+    if (keys[GLFW_KEY_M])
+    {
+        circuito = true;
+    }
+    if (keys[GLFW_KEY_1])
+    {
+        animmov = false;
+    }
+    if (keys[GLFW_KEY_G])
+    {
+        circuito2 = true;
+    }
   
     
 
