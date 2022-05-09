@@ -225,10 +225,10 @@ int main()
         model = glm::mat4(1);
         model = glm::translate(model, glm::vec3(2.3+active_s, 3.789f, 3.285));
         model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        model = glm::scale(model, glm::vec3(0.192f, 0.192f, 0.192f));
+        model = glm::scale(model, glm::vec3(0.18f, 0.18f, 0.18f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         SILLA.Draw(shader);
-
+   
         model = glm::mat4(1);
         model = glm::translate(model, PosIni + glm::vec3(movMX, 0, movMZ));
         model = glm::rotate(model, glm::radians(157.031f+rotMov), glm::vec3(0.0f, 1.0f, 0.0));
