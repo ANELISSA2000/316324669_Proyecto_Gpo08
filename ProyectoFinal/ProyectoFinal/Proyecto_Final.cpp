@@ -136,7 +136,7 @@ int main()
     // Load models
     Model ALIEN((char*)"Models/Alien/alien.obj");
     Model GODDARD((char*)"Models/Goddard/Goddard.obj");
-    Model FACHADA((char*)"Models/Casa/Fachada.obj");
+    Model FACHADA((char*)"Models/Casa/Fachada_3.obj");
     Model CAMA((char*)"Models/Cama/Cama.obj");
     Model ESCRITORIO((char*)"Models/Escritorio_s/Escriotorio_s.obj");
     Model CAJON((char*)"Models/Cajon/Cajon.obj");
@@ -149,6 +149,7 @@ int main()
     Model PUERTA((char*)"Models/Puerta/Puerta.obj");
     Model COMODA((char*)"Models/Comoda/Comoda.obj");
     Model TELES((char*)"Models/telesco/telesco.obj");
+    Model LAMP((char*)"Models/Lamp/Lamp.obj");
 
 
    
@@ -280,6 +281,12 @@ int main()
         model = glm::scale(model, glm::vec3(0.718f, 0.718f, 0.718f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         TELES.Draw(shader);
+
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(2.703f, 2.29f, -4.341f));
+        model = glm::scale(model, glm::vec3(0.449f, 0.449f, 0.449f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        LAMP.Draw(shader);
 
 
         glBindVertexArray(0);

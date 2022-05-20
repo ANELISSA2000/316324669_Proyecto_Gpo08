@@ -26,6 +26,34 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd colcha.png
 Ni 1.00
+newmtl Comoda_lambert5SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd café_2_dresser.png
+Ni 1.00
+newmtl Comoda_lambert8SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd amarillito.png
+Ni 1.00
+newmtl Comoda_lambert9SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd azul_2_dresser.png
+Ni 1.00
+newmtl Comoda_lambert10SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd azul_1_dresser.png
+Ni 1.00
 newmtl Cuchara_lambert6SG
 illum 4
 Kd 0.00 0.00 0.00
@@ -95,6 +123,20 @@ Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd blanco_brillante.jpg
 Ni 1.00
+newmtl Lamp_lambert8SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd lamp_1.png
+Ni 1.00
+newmtl Lamp_lambert9SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd lamp_2.png
+Ni 1.00
 newmtl Mesa_initialShadingGroup
 illum 4
 Kd 1.00 1.00 1.00
@@ -114,6 +156,102 @@ Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd café_1.png
+Ni 1.00
+newmtl Movil_2_Movil_lambert2SG
+illum 4
+Kd 1.00 1.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl Movil_2_lambert2SG
+illum 4
+Kd 1.00 1.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl Movil_2_lambert8SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 2k_earth_daymap.jpg
+Ni 1.00
+newmtl Movil_2_lambert9SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 2k_mars.jpg
+Ni 1.00
+newmtl Movil_2_lambert10SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 2k_jupiter.jpg
+Ni 1.00
+newmtl Movil_2_lambert11SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 2k_saturn.jpg
+Ni 1.00
+newmtl Movil_2_lambert12SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 2k_saturn_ring_alpha.png
+Ni 1.00
+newmtl Movil_2_lambert13SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 2k_uranus.jpg
+Ni 1.00
+newmtl Movil_2_lambert14SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 2k_neptune.jpg
+Ni 1.00
+newmtl Movil_2_lambert15SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 2k_mercury.jpg
+Ni 1.00
+newmtl Movil_2_lambert16SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 2k_venus_surface.jpg
+Ni 1.00
+newmtl Movil_2_lambert17SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd escritorio.jpg
+Ni 1.00
+newmtl Movil_2_lambert18SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd amarillito.png
+Ni 1.00
+newmtl Movil_2_lambert19SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd naranja.png
 Ni 1.00
 newmtl Movil_lambert2SG
 illum 4
@@ -475,7 +613,7 @@ illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
-map_Kd verde_paredes.png
+map_Kd pared_cocina_0.png
 Ni 1.00
 newmtl lambert30SG
 illum 4
@@ -490,6 +628,20 @@ Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd pared_cocina_2.png
+Ni 1.00
+newmtl lambert32SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd pared_cocina_001.png
+Ni 1.00
+newmtl lambert33SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd techo_cocina.png
 Ni 1.00
 newmtl pasted__lambert6SG
 illum 4
@@ -533,4 +685,39 @@ Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 map_Kd escritorio.jpg
+Ni 1.00
+newmtl telesco_lambert2SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd escritorio.jpg
+Ni 1.00
+newmtl telesco_lambert3SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd plateado.png
+Ni 1.00
+newmtl telesco_lambert4SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd negro_2.png
+Ni 1.00
+newmtl telesco_lambert5SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd café_2_dresser.png
+Ni 1.00
+newmtl telesco_lambert7SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd tejadoorilla.png
 Ni 1.00
